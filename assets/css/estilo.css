@@ -44,11 +44,13 @@ h1 {
     padding: 20px;
     height: 8vh;
     font-size: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .cont-check {
     display: flex;
-    gap: 35px;
+    flex-wrap: wrap;
+    gap: 25px;
     align-items: center;
 }
 
@@ -77,11 +79,12 @@ div ul {
     display: flex;
     justify-content: space-evenly;
     padding-top: 20px;
+    flex-wrap: wrap;
 }
 
 .carta {
-    height: 550px;
-    width: 350px;
+    height: 580px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -89,20 +92,23 @@ div ul {
     border: 1px solid gray;
     border-radius: 15px;
     padding-bottom: 10px;
+    box-shadow: 0 0 25px;
 }
 
 .tit-carta {
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .cont-carta-img {
-    width: 350px;
+    width: 370px;
+    height: 235px;
     border-radius: 15px;
 }
 
 .cont-carta-titulo {
     font-size: 1.5rem;
-    padding: 5px;
+    padding: 10px;
 }
 
 .cont-carta-footer {
@@ -139,3 +145,36 @@ footer {
     width: 30px
 }
 
+
+@media screen and (min-width:375px) and (max-width:767px) {
+    .text {
+        width: 250px;
+        height: 30px;
+    }
+
+    .cont-input {
+        height: 250px;
+    }
+
+    .cont-cartas {
+        gap: 35px;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .cont-input {
+        height: 250px;
+    }
+
+    .cont-cartas {
+        gap: 15px;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (min-width:1025px) and (max-width:1900px) {
+    
+}
