@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 header {
     height: 10vh;
-    background-color: rgb(35, 42, 48);
+    background-color: rgb(77, 83, 88);
 }
 
 nav {
@@ -15,6 +19,12 @@ nav {
 
 .logo {
     width: 200px;
+}
+
+span {
+    border-radius: 5px;
+    padding: 30px;
+    background-color: rgba(119, 136, 153, 0.651);
 }
 
 main {
@@ -190,6 +200,10 @@ footer {
     border-radius: 15px;
 }
 
+a:hover {
+    color: rgb(209, 24, 24);
+}
+
 
 @media screen and (min-width:375px) and (max-width:767px) {
     .text {
@@ -228,11 +242,28 @@ footer {
     }
     .details-img {
         width: 100%;
-        height: 50%;
+        height: 100%;
         border-radius: 15px;
     }
+
+    ul {
+        background-color: rgb(187, 217, 224);
+    }
+
+    .titulo-upcoming {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+
 }
 
+@media screen and (min-width:768px) and (max-width:991px) {
+    ul {
+        background-color: rgb(187, 217, 224);
+    }
+
+}
 
 
 @media screen and (min-width:768px) and (max-width:1024px) {
@@ -254,7 +285,7 @@ footer {
     }
     .detail-titulo-carta {
         text-align: center;
-        font-size: 6rem;
+        font-size: 5.5rem;
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
@@ -269,6 +300,7 @@ footer {
         text-align: center;
         font-size: 1.8rem;
     }
+
 }
 
 @media screen and (min-width:1025px) and (max-width:1900px) {
@@ -285,5 +317,8 @@ footer {
         text-align: center;
         font-size: 6rem;
         color: rgb(173, 5, 61);
+    }
+    .cont-input {
+        height: 150px;
     }
 }
