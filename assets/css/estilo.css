@@ -200,11 +200,6 @@ footer {
     border-radius: 15px;
 }
 
-a:hover {
-    color: rgb(209, 24, 24);
-}
-
-
 @media screen and (min-width:375px) and (max-width:767px) {
     .text {
         width: 250px;
