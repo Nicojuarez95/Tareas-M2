@@ -243,6 +243,7 @@ footer {
 
     ul {
         background-color: rgb(187, 217, 224);
+        border-radius: 10px;
     }
 
     .titulo-upcoming {
@@ -256,6 +257,7 @@ footer {
 @media screen and (min-width:768px) and (max-width:991px) {
     ul {
         background-color: rgb(187, 217, 224);
+        border-radius: 10px;
     }
 
 }
