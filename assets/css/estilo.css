@@ -243,6 +243,47 @@ footer {
     background-color: slategray;
 }
 
+.tabla {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+table {
+    box-shadow: 0 0 25px;
+    text-align: center;
+}
+
+table,
+th,
+td,
+tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.stats-main .table {
+    width: 100%;
+    margin: 5% 0;
+}
+
+.tabla table{
+    width: 80%;
+    margin: 0 auto;
+}
+
+table tr {
+    background-color: #e0dfde;
+}
+
+.title {
+    background-color: #9b9798;
+}
+
+.title th {
+    padding: .7rem;
+    color: #c73f61;
+}
+
 @media screen and (min-width:375px) and (max-width:767px) {
     .text {
         width: 250px;
