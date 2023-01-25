@@ -90,12 +90,12 @@ div ul {
     justify-content: space-evenly;
     padding-top: 20px;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 90px;
     padding-bottom: 30px;
 }
 
 .carta {
-    height: 580px;
+    height: 500px;
     width: 410px;
     display: flex;
     flex-direction: column;
@@ -103,24 +103,34 @@ div ul {
     align-items: center;
     border: 1px solid gray;
     border-radius: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     box-shadow: 0 0 25px;
 }
 
 .tit-carta {
     text-align: center;
     padding-bottom: 10px;
+    font-size: 2.5rem;
 }
 
 .cont-carta-img {
     width: 410px;
-    height: 235px;
+    height: 255px;
     border-radius: 15px;
 }
 
 .cont-carta-titulo {
-    font-size: 1.5rem;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 20px;
+}
+
+h6 {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+h5 {
+    font-size: 1.7rem;
 }
 
 .cont-carta-footer {
@@ -165,13 +175,18 @@ footer {
 
 .cont-details {
     display: flex;
-    background-color: lightslategrey;
+    background-color: rgb(226, 226, 226);
     justify-content: space-evenly;
     align-items: center;
     height: 60vh;
     width: 90%;
     margin-top: 40px;
     border-radius: 10px;
+}
+
+.detail1 {
+    background-image: url(../images/Concierto\ de\ musica1.jpg);
+    background-size: cover;
 }
 
 .detail1, .detail2 {
@@ -183,11 +198,12 @@ footer {
     height: 80%;
     border-radius: 15px;
     box-shadow: 0 0 25px;
-    background-color: lightsteelblue;
+    background-color: rgba(138, 183, 241, 0.658);
+    text-align: center;
 }
 
 .detail-titulo-carta {
-    font-size: 6rem;
+    font-size: 5rem;
     color: rgb(173, 5, 61);
 }
 
@@ -198,6 +214,33 @@ footer {
 .details-img {
     width: 100%;
     border-radius: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 0 25px;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 40%;
+    height: 30rem;
+    padding: 40px;
+    background-color: silver;
+}
+
+.btn-sbm {
+    display: flex;
+    height: 50px;
+    justify-content: end;
+    width: 100%;
+}
+
+.btn {
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: slategray;
 }
 
 @media screen and (min-width:375px) and (max-width:767px) {
@@ -220,7 +263,7 @@ footer {
     }
     .detail-titulo-carta {
         text-align: center;
-        font-size: 4rem;
+        font-size: 2.4rem;
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
@@ -231,10 +274,6 @@ footer {
         align-items: center;
     }
 
-    .p-detail {
-        text-align: center;
-        font-size: 1.6rem;
-    }
     .details-img {
         width: 100%;
         height: 100%;
@@ -242,22 +281,39 @@ footer {
     }
 
     ul {
-        background-color: rgb(187, 217, 224);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(187, 217, 224, 0.952);
         border-radius: 10px;
+        box-shadow: 0 0 15px;
     }
 
     .titulo-upcoming {
         font-size: 3.5rem;
         text-align: center;
     }
-
+    h5 {
+        font-size: .7rem;
+        margin: 0;
+    }
+    .form {
+        margin-top: 30px;
+        width: 80%;
+        height: 30rem;
+        margin-bottom: 20px;   
+    }
 
 }
 
 @media screen and (min-width:768px) and (max-width:991px) {
     ul {
-        background-color: rgb(187, 217, 224);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(187, 217, 224, 0.959);
         border-radius: 10px;
+        box-shadow: 0 0 15px;
     }
 
 }
@@ -282,7 +338,7 @@ footer {
     }
     .detail-titulo-carta {
         text-align: center;
-        font-size: 5.5rem;
+        font-size: 3rem;
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
@@ -297,6 +353,17 @@ footer {
         text-align: center;
         font-size: 1.8rem;
     }
+    h5 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+    .form {
+        margin-top: 20px;
+        width: 70%;
+        height: 30rem;
+        margin-bottom: 20px;   
+    }
+
 
 }
 
@@ -312,10 +379,24 @@ footer {
     }
     .detail-titulo-carta {
         text-align: center;
-        font-size: 6rem;
+        margin: 0;
         color: rgb(173, 5, 61);
     }
+
     .cont-input {
         height: 150px;
     }
+
+    h5 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .form {
+        margin-top: 30px;
+        width: 50%;
+        height: 30rem;
+        margin-bottom: 20px;   
+    }
+
 }
