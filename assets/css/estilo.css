@@ -12,7 +12,7 @@ body {
 
 header {
     height: 10vh;
-    background-color: rgb(77, 83, 88);
+    background-color: slategray;
 }
 
 nav {
@@ -43,7 +43,7 @@ main {
 }
 
 .cont-titulo {
-    height: 12vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,14 +86,16 @@ h1 {
 
 #text-footer {
     color: #8a233d !important;
+    margin: 0 !important;
 }
 
 #paginas {
-    color: #eeeeee !important;
-    background-color: #9c304b;
+    color: #ebebeb !important;
+    background-color: #72666b60;
     border-radius: 15px;
-    padding: 5px;
     text-align: center;
+    box-shadow: 0 0 10px #221e2060;
+    height: 55px;
 }
 
 #paginas:hover {
@@ -178,7 +180,7 @@ h6 {
 }
 
 h5 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .cont-carta-footer {
@@ -194,11 +196,18 @@ h5 {
 }
 .link-detail {
     text-decoration: none;
-    color: #c73f61;
+    color: rgb(4, 4, 5);
     font-weight: 600;
+    background-color: #d64166;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    border: 1px solid black;
 }
+
 .link-detail:hover {
-    color: #9c304b;
+    background-color: #8a233d;
+    box-shadow: 0 0 25px #8a233d;
+    color: #e0dfde;
 }
 
 footer {
@@ -228,7 +237,7 @@ footer {
 
 .cont-details {
     display: flex;
-    background-color: rgb(226, 226, 226);
+    background-color: rgba(223, 187, 196, 0);
     justify-content: space-evenly;
     align-items: center;
     height: 60vh;
@@ -251,12 +260,12 @@ footer {
     height: 80%;
     border-radius: 15px;
     box-shadow: 0 0 25px;
-    background-color: rgba(138, 183, 241, 0.658);
+    background-color: rgba(240, 199, 213, 0.658);
     text-align: center;
 }
 
 .detail-titulo-carta {
-    font-size: 5rem;
+    font-size: 4rem;
     color: rgb(173, 5, 61);
 }
 
@@ -277,9 +286,10 @@ footer {
     border-radius: 20px;
     margin-top: 50px;
     width: 40%;
-    height: 30rem;
+    height: 37rem;
     padding: 40px;
     background-color: silver;
+    margin-bottom: 20px;
 }
 
 .btn-sbm {
@@ -327,7 +337,7 @@ tr {
     border-collapse: collapse;
 }
 
-.stats-main .table {
+.table {
     width: 100%;
     margin: 5% 0;
 }
@@ -350,9 +360,125 @@ table tr {
     color: #c73f61;
 }
 
+@media screen and (min-width:320px) and (max-width:374px) {
+    .text {
+        width: 150px;
+        height: 30px;
+    }
 
+    .carta {
+        width: 300px;
+        height: 490px;
+    }
+
+    .cont-carta-img {
+        width: 290px;
+        height: 200px;
+    }
+    ul {
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 500px;
+        background-color: rgba(65, 14, 29, 0.952);
+        border-radius: 10px;
+        box-shadow: 0 0 15px;
+        color: black;
+    }
+
+    .cont-cartas {
+        gap: 25px;
+        padding-bottom: 20px;
+    }
+
+    #text-footer {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .img-footer {
+        width: 25px;
+        margin: 0;
+    }
+
+    .cont-check {
+        display: flex;
+    }
+
+    .cont-check div label {
+        width: 75px;
+    }
+
+    .cont-input {
+        height: 250px;
+        justify-content: center;
+    }
+
+    .titulo-upcoming {
+        font-size: 2.3rem;
+    }
+    
+    .form {
+        margin-top: 30px;
+        width: 85%;
+        height: 30rem;
+        margin-bottom: 20px;   
+    }
+
+    .btn {
+        margin-top: 10px;
+        width: 80px;
+        height: 40px;
+        padding: 0;
+    }
+    .titulo-stats {
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .cont-details {
+        flex-direction: column;
+        height: 700px;
+    }
+    .detail-titulo-carta {
+        text-align: center;
+        font-size: 2.4rem;
+        color: rgb(173, 5, 61);
+    }
+    .detail1, .detail2 {
+        width: 90%;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+    }
+    h5 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+    ul li {
+        width: 80%;
+        margin: 0;
+    }
+}
 
 @media screen and (min-width:375px) and (max-width:767px) {
+    #text-footer {
+        font-size: 1.5rem;
+    }
+
     .text {
         width: 250px;
         height: 30px;
@@ -380,6 +506,7 @@ table tr {
 
     .cont-details {
         flex-direction: column;
+        height: 700px;
     }
     .detail-titulo-carta {
         text-align: center;
@@ -406,11 +533,12 @@ table tr {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 70%;
         height: 500px;
-        background-color: rgba(228, 228, 228, 0.952);
+        background-color: rgba(65, 14, 29, 0.952);
         border-radius: 10px;
         box-shadow: 0 0 15px;
+        color: black;
     }
 
     ul li {
@@ -420,11 +548,11 @@ table tr {
 
 
     .titulo-upcoming {
-        font-size: 3.5rem;
+        font-size: 3.1rem;
         text-align: center;
     }
     h5 {
-        font-size: .7rem;
+        font-size: 1.1rem;
         margin: 0;
     }
     .form {
@@ -433,6 +561,8 @@ table tr {
         height: 30rem;
         margin-bottom: 20px;   
     }
+
+
 
 }
 
@@ -444,8 +574,8 @@ table tr {
         align-items: center;
         justify-content: center;
         width: 50%;
-        height: 500px;
-        background-color: rgba(228, 228, 228, 0.952);
+        height: 600px;
+        background-color: rgba(65, 14, 29, 0.952);
         border-radius: 10px;
         box-shadow: 0 0 15px;
     }
@@ -475,17 +605,15 @@ table tr {
         height: 90%;
         border-radius: 15px;
     }
-    .cont-details {
-        flex-direction: column;
-    }
+    
     .detail-titulo-carta {
         text-align: center;
         font-size: 3rem;
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
-        width: 90%;
-        height: 45%;
+        width: 45%;
+        height: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -506,7 +634,15 @@ table tr {
         margin-bottom: 20px;   
     }
 
-
+    #paginas {
+        color: white !important;
+        padding: 1px !important;
+        height: 45px !important;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-size: 1.2rem !important;
+    }
 }
 
 @media screen and (min-width:1025px) and (max-width:1454px) {
@@ -545,4 +681,28 @@ table tr {
         justify-content: center;
     }
 
+    #paginas {
+        color: white !important;
+        padding: 1px !important;
+        height: 45px !important;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-size: 1.3rem !important;
+    }
+}
+
+@media screen and (min-width:1455px) and (max-width:3900px) {
+    .tabla {
+        padding-top: 30px;
+        width: 60vw;
+    }
+
+    table {
+        height: 600px;
+    }
+
+    .detail1, .detail2 {
+        width: 41%;
+    }
 }
