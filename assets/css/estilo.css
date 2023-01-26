@@ -23,6 +23,10 @@ nav {
     width: 200px;
 }
 
+.active-page {
+    background-color: #cc3265 !important;
+    box-shadow: 0 0 25px #cc3265 !important ;
+}
 
 button {
     background-color: #9c3851 !important;
