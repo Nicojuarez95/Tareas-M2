@@ -20,19 +20,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-black fs-3" aria-current="page" href="../index.html">Home</a>
+                            <a id="paginas" class="nav-link active text-black fs-3" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black fs-3" href="./Upcoming Events.html">Upcoming Events</a>
+                            <a id="paginas" class="nav-link text-black fs-3" href="./Upcoming Events.html">Upcoming Events</a>
+                        </li>
+                        <li  class="nav-item">
+                            <a id="paginas" class="nav-link text-black fs-3" href="./pastevent.html">Past Event</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black fs-3" href="./pastevent.html">Past Event</a>
+                            <a id="paginas" class="nav-link text-black fs-3" href="#">Contact us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black fs-3" href="#">Contact us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-black fs-3" href="./stats.html">Stats</a>
+                            <a id="paginas" class="nav-link text-black fs-3" href="./stats.html">Stats</a>
                         </li>
                     </ul>
               </div>
@@ -74,23 +74,23 @@
             </div>
         </div>
 
-        <div class="form">
+        <form class="form" action="./show_data.html">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name">
+                <label id="label-cont" for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Ej: name">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label id="label-cont" for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="Email" placeholder="Ej: name@example.com">
             </div>
             <div>
-                <label for="exampleFormControlTextarea1" class="form-label">Mensagge</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label id="label-cont" for="exampleFormControlTextarea1" class="form-label">Mensagge</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="Mensagge" placeholder="Your text here.." rows="3"></textarea>
             </div>
             <div class="btn-sbm">
                 <input class="btn" type="submit" value="Submit">
             </div>
-        </div>
+        </form>
         
         
     </main>
@@ -109,7 +109,7 @@
             </div>
         </div>
         <div>
-            <p>COHORT</p>
+            <p id="text-footer">COHORT</p>
         </div>
     </footer>
 

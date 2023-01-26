@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body {
@@ -22,10 +23,16 @@ nav {
     width: 200px;
 }
 
-span {
-    border-radius: 5px;
-    padding: 30px;
-    background-color: rgba(119, 136, 153, 0.651);
+
+button {
+    background-color: #9c3851 !important;
+    padding: 10px !important;
+    border: 1px solid white !important;
+}
+
+button:hover {
+    background-color: #bb566f !important;
+    box-shadow: 0 0 25px #bb566f !important;
 }
 
 main {
@@ -73,10 +80,47 @@ h1 {
 .text {
     width: 400px;
     height: 30px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#text-footer {
+    color: #8a233d !important;
+}
+
+#paginas {
+    color: #eeeeee !important;
+    background-color: #9c304b;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+#paginas:hover {
+    background-color: #cc3265;
+    box-shadow: 0 0 25px #cc3265;
+}
+
+#paginas:focus {
+    background-color: #cc3265 !important;
+}
+
+.text:focus {
+    box-shadow: 0 0 10px rgb(77, 147, 238);
 }
 .enviar {
     height: 30px;
     font-size: 1rem;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: #c73f61;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0px 10px 0px 10px;
+}
+
+.enviar:hover {
+    background-color: #9c304b;
 }
 
 div ul {
@@ -97,7 +141,7 @@ div ul {
 }
 
 .carta {
-    height: 500px;
+    height: 550px;
     width: 410px;
     display: flex;
     flex-direction: column;
@@ -113,21 +157,23 @@ div ul {
     text-align: center;
     padding-bottom: 10px;
     font-size: 2.5rem;
+    color: #c73f61;
 }
 
 .cont-carta-img {
-    width: 410px;
-    height: 255px;
-    border-radius: 15px;
+    padding-top: 5px;
+    width: 400px;
+    height: 265px;
+    border-radius: 10px;
 }
 
 .cont-carta-titulo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     padding: 20px;
 }
 
 h6 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 
@@ -148,6 +194,11 @@ h5 {
 }
 .link-detail {
     text-decoration: none;
+    color: #c73f61;
+    font-weight: 600;
+}
+.link-detail:hover {
+    color: #9c304b;
 }
 
 footer {
@@ -242,7 +293,20 @@ footer {
     width: 100px;
     border: none;
     border-radius: 10px;
-    background-color: slategray;
+    background-color: #9c304b;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#label-cont {
+    color: #c73f61 !important;
+    font-size: 1.4rem !important;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #c73f61 !important;
+    color: white;
 }
 
 .tabla {
@@ -286,6 +350,8 @@ table tr {
     color: #c73f61;
 }
 
+
+
 @media screen and (min-width:375px) and (max-width:767px) {
     .text {
         width: 250px;
@@ -301,7 +367,7 @@ table tr {
     }
 
     .cont-carta-img {
-        width: 380px;
+        width: 370px;
     }
     .cont-input {
         height: 250px;
@@ -335,13 +401,23 @@ table tr {
     }
 
     ul {
+        padding: 0 !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgba(187, 217, 224, 0.952);
+        justify-content: center;
+        width: 50%;
+        height: 500px;
+        background-color: rgba(228, 228, 228, 0.952);
         border-radius: 10px;
         box-shadow: 0 0 15px;
     }
+
+    ul li {
+        width: 80%;
+        margin: 0;
+    }
+
 
     .titulo-upcoming {
         font-size: 3.5rem;
@@ -362,12 +438,21 @@ table tr {
 
 @media screen and (min-width:768px) and (max-width:991px) {
     ul {
+        padding: 0 !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgba(187, 217, 224, 0.959);
+        justify-content: center;
+        width: 50%;
+        height: 500px;
+        background-color: rgba(228, 228, 228, 0.952);
         border-radius: 10px;
         box-shadow: 0 0 15px;
+    }
+
+    ul li {
+        width: 80%;
+        margin: 0;
     }
 
 }
