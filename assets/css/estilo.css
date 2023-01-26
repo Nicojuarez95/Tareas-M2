@@ -6,6 +6,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: rgb(241, 241, 241);
 }
 
 header {
@@ -55,6 +56,7 @@ h1 {
     height: 8vh;
     font-size: 1.5rem;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .cont-check {
@@ -291,6 +293,17 @@ table tr {
     }
 
     .cont-input {
+        justify-content: center;
+    }
+
+    .carta {
+        width: 380px;
+    }
+
+    .cont-carta-img {
+        width: 380px;
+    }
+    .cont-input {
         height: 250px;
     }
 
@@ -365,6 +378,9 @@ table tr {
         height: 250px;
     }
 
+    .cont-input {
+        justify-content: center;
+    }
     .cont-cartas {
         gap: 15px;
         padding-bottom: 20px;
@@ -408,7 +424,7 @@ table tr {
 
 }
 
-@media screen and (min-width:1025px) and (max-width:1900px) {
+@media screen and (min-width:1025px) and (max-width:1454px) {
     .details-img {
         width: 100%;
         height: 500px;
@@ -438,6 +454,10 @@ table tr {
         width: 50%;
         height: 30rem;
         margin-bottom: 20px;   
+    }
+
+    .cont-input {
+        justify-content: center;
     }
 
 }
