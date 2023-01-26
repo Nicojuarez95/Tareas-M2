@@ -339,8 +339,15 @@ td,
 tr {
     border: 2px solid black;
     border-collapse: collapse;
+    font-size: 0.7rem;
 }
 
+td {
+    height: 1.7rem;
+}
+th {
+    height: 1.7rem;
+}
 .table {
     width: 100%;
     margin: 5% 0;
@@ -360,8 +367,9 @@ table tr {
 }
 
 .title th {
-    padding: .7rem;
+    padding: .6rem;
     color: #c73f61;
+    font-size: .9rem;
 }
 
 @media screen and (min-width:320px) and (max-width:374px) {
@@ -476,6 +484,10 @@ table tr {
         width: 80%;
         margin: 0;
     }
+
+    .tabla {
+        width: 380px;
+    }
 }
 
 @media screen and (min-width:375px) and (max-width:767px) {
@@ -566,7 +578,14 @@ table tr {
         margin-bottom: 20px;   
     }
 
-
+    table,
+    th,
+    td,
+    tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: .8rem;
+    }
 
 }
 
@@ -640,12 +659,21 @@ table tr {
 
     #paginas {
         color: white !important;
-        padding: 1px !important;
+        padding: 0 6px 0 6px !important;
         height: 45px !important;
         align-items: center;
         justify-content: center;
         display: flex;
         font-size: 1.2rem !important;
+    }
+
+    table,
+    th,
+    td,
+    tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: .8rem;
     }
 }
 
@@ -687,12 +715,20 @@ table tr {
 
     #paginas {
         color: white !important;
-        padding: 1px !important;
+        padding: 0 6px 0 6px !important;
         height: 45px !important;
         align-items: center;
         justify-content: center;
         display: flex;
         font-size: 1.3rem !important;
+    }
+    table,
+    th,
+    td,
+    tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    font-size: 1rem;
     }
 }
 
@@ -708,5 +744,25 @@ table tr {
 
     .detail1, .detail2 {
         width: 41%;
+    }
+
+    .title th {
+        padding: .4rem;
+        color: #c73f61;
+        font-size: 1.4rem;
+    }
+
+    table,
+    th,
+    td,
+    tr {
+        border: 2px solid black;
+        border-collapse: collapse;
+        font-size: 1rem;
+    }
+
+    #paginas {
+        height: 55px !important;
+        
     }
 }
