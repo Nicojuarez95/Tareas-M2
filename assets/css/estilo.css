@@ -126,7 +126,8 @@ h1 {
 }
 
 .enviar:hover {
-    background-color: #9c304b;
+    background-color: #d40e40;
+    box-shadow: 0 0 15px #d40e40;
 }
 
 div ul {
@@ -200,17 +201,17 @@ h5 {
 }
 .link-detail {
     text-decoration: none;
-    color: rgb(4, 4, 5);
+    color: rgb(248, 248, 248);
     font-weight: 600;
-    background-color: #d64166;
+    background-color: #e94b73;
     border-radius: 5px;
     padding: 0 5px 0 5px;
     border: 1px solid black;
 }
 
 .link-detail:hover {
-    background-color: #8a233d;
-    box-shadow: 0 0 25px #8a233d;
+    background-color: #d40e40;
+    box-shadow: 0 0 25px #d40e40;
     color: #e0dfde;
 }
 
@@ -307,14 +308,20 @@ footer {
     width: 100px;
     border: none;
     border-radius: 10px;
-    background-color: #9c304b;
+    background-color: #c73f61;
     color: white;
     font-size: 1.5rem;
+    border: 1px solid black;
+}
+
+.btn:hover {
+    background-color: #d40e40;
+    box-shadow: 0 0 15px #d40e40;
 }
 
 #label-cont {
     color: #c73f61 !important;
-    font-size: 1.4rem !important;
+    font-size: 1.7rem !important;
     font-weight: 600;
 }
 
@@ -464,7 +471,7 @@ table tr {
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
-        width: 90%;
+        width: 98%;
         height: 45%;
         display: flex;
         flex-direction: column;
@@ -505,11 +512,11 @@ table tr {
     }
 
     .carta {
-        width: 380px;
+        width: 360px;
     }
 
     .cont-carta-img {
-        width: 370px;
+        width: 350px;
     }
     .cont-input {
         height: 250px;
@@ -749,7 +756,7 @@ table tr {
     .title th {
         padding: .4rem;
         color: #c73f61;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     table,
@@ -758,7 +765,7 @@ table tr {
     tr {
         border: 2px solid black;
         border-collapse: collapse;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     #paginas {
