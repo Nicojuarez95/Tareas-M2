@@ -1,3 +1,4 @@
+function cartasHome(){
 const divContenedor = document.getElementById("cont-cartas")
 let cartasInfo = data.events
 
@@ -16,7 +17,9 @@ for (let cartaInfo of cartasInfo){
         <a class="link-detail" href="./assets/details.html">Details</a>
     </div>`
     divContenedor.appendChild(cartaContenedor)
+    }
 }
+cartasHome()
 
 
 
