@@ -392,7 +392,7 @@ table tr {
 
     .carta {
         width: 300px;
-        height: 490px;
+        height: 520px;
     }
 
     .cont-carta-img {
@@ -413,7 +413,7 @@ table tr {
         color: black;
     }
 
-    .cont-cartas {
+    #cont-cartas {
         gap: 25px;
         padding-bottom: 20px;
     }
@@ -527,8 +527,8 @@ table tr {
         height: 250px;
     }
 
-    .cont-cartas {
-        gap: 35px;
+    #cont-cartas {
+        gap: 45px;
         padding-bottom: 20px;
     }
 
@@ -631,7 +631,7 @@ table tr {
     .cont-input {
         justify-content: center;
     }
-    .cont-cartas {
+    #cont-cartas {
         gap: 15px;
         padding-bottom: 20px;
     }
