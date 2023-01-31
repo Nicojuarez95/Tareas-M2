@@ -137,7 +137,7 @@ div ul {
     font-size: 2rem;
 }
 
-.cont-cartas {
+#cont-cartas {
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
