@@ -70,7 +70,7 @@ h1 {
     align-items: center;
 }
 
-.cont-check {
+#cont-check {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
@@ -428,16 +428,18 @@ table tr {
         margin: 0;
     }
 
-    .cont-check {
+    #cont-check {
         display: flex;
+        font-size: .74rem;
+        align-items: center;
     }
 
-    .cont-check div label {
+    #cont-check div label {
         width: 75px;
     }
 
     .cont-input {
-        height: 250px;
+        height: 300px;
         justify-content: center;
     }
 
@@ -512,8 +514,13 @@ table tr {
         height: 30px;
     }
 
+    #cont-check{
+        font-size: 1.2rem;
+    }
+
     .cont-input {
         justify-content: center;
+        height: 300px;
     }
 
     .carta {
@@ -523,10 +530,7 @@ table tr {
     .cont-carta-img {
         width: 350px;
     }
-    .cont-input {
-        height: 250px;
-    }
-
+    
     #cont-cartas {
         gap: 45px;
         padding-bottom: 20px;
@@ -776,5 +780,10 @@ table tr {
     #paginas {
         height: 55px !important;
         
+    }
+    .cont-input{
+        height: 150px;
+        justify-content: space-around;
+        align-items: center;
     }
 }

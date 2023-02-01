@@ -25,3 +25,26 @@ function rellenarCartas(carta,event,divContCartas){
             </div>`
             divContCartas.appendChild(carta)
 }
+
+const contChecks = document.getElementById("cont-check")
+let categorias = check()
+
+
+for (let cate of categorias){
+    let categoria = document.createElement("div")
+    categoria.innerHTML= `<input type="checkbox">
+    <label>${cate}</label>`
+    contChecks.appendChild(categoria)
+}
+
+
+function check(){
+ let array= []
+
+    for (let event of data.events){
+        if (array.indexOf(event.category) === -1)
+        array.push(event.category)
+    }
+
+return(array)
+}
