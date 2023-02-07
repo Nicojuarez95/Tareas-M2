@@ -1,3 +1,4 @@
+//filtrar cartas
 function crearCartasPast(){
     const divContCartas = document.getElementById("cont-cartas")
 
@@ -26,6 +27,8 @@ function rellenarCartas(carta,event,divContCartas){
             divContCartas.appendChild(carta)
 }
 
+
+//filtrar checks
 const contChecks = document.getElementById("cont-check")
 let categorias = check()
 
@@ -48,3 +51,39 @@ function check(){
 
 return(array)
 }
+
+
+// filtrado por busqueda
+const formulario = document.getElementById("formulario")
+const boton = document.getElementById("boton")
+const divContenedor = document.getElementById("cont-cartas") 
+
+const filtrar = () => {
+    divContenedor.innerHTML= ""
+    const texto = formulario.value.toLowerCase()
+
+    for(let carta of data.events){
+        let name = carta.name.toLowerCase()
+        if(name.indexOf(texto) !== -1 && data.currentDate > carta.date){
+            divContenedor.innerHTML = ` <div class="carta">
+            <div> <img class="cont-carta-img" src="${carta.image}" alt="">
+        </div>
+        <div class="cont-carta-titulo">
+            <h2 class="tit-carta">${carta.name}</h2>
+            <h6>${carta.description}</h6>
+        </div>
+        <div class="cont-carta-footer">
+            <h6 class="price"><b>Price:</b> ${carta.price}</h6>
+            <a class="link-detail" href="./assets/details.html">Details</a>
+        </div> 
+        </div>`
+        }
+    }
+    if (divContenedor.innerHTML=== "") {
+        divContenedor.innerHTML += `
+        <li> Result not found...</li>`
+    }
+    
+}
+
+boton.addEventListener("click", filtrar)
