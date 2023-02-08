@@ -1,37 +1,88 @@
-//filtrar cartas
-function cartasHome(){
+//filtrar 14 cartas
+function cartasHome(eventos){
 const divContenedor = document.getElementById("cont-cartas")
-let cartasInfo = data.events
+divContenedor.innerHTML=""
 
-for (let cartaInfo of cartasInfo){
+for (let event of eventos){
     let cartaContenedor = document.createElement("div")
     cartaContenedor.className = "carta"
+    rellenarCartas(cartaContenedor,event, divContenedor)
+}
+}
+cartasHome(data.events)
+
+function rellenarCartas(cartaContenedor,event, divContenedor){
     cartaContenedor.innerHTML = `<div>
-        <img class="cont-carta-img" src="${cartaInfo.image}" alt="">
+        <img class="cont-carta-img" src="${event.image}" alt="">
     </div>
     <div class="cont-carta-titulo">
-        <h2 class="tit-carta">${cartaInfo.name}</h2>
-        <h6>${cartaInfo.description}</h6>
+        <h2 class="tit-carta">${event.name}</h2>
+        <h6>${event.description}</h6>
     </div>
     <div class="cont-carta-footer">
-        <h6 class="price"><b>Price:</b> ${cartaInfo.price}</h6>
+        <h6 class="price"><b>Price:</b> ${event.price}</h6>
         <a class="link-detail" href="./assets/details.html">Details</a>
     </div>`
     divContenedor.appendChild(cartaContenedor)
-    }
 }
-cartasHome()
 
 
-// filtrado de categorias checks
+
+
+
+
+
+
+// filtrado por busqueda input text y submit
+function filtrar(){
+    const formulario = document.querySelector("#formulario")
+    const boton = document.getElementById("boton")
+    const divContenedor = document.querySelector("#cont-cartas") 
+    
+    divContenedor.innerHTML= " "
+    const texto = formulario.value.toLowerCase()
+
+    for(let event of data.events){
+        let name = event.name.toLowerCase()
+        if(name.indexOf(texto) !== -1){
+            divContenedor.innerHTML = ` <div class="carta">
+            <div> <img class="cont-carta-img" src="${event.image}" alt="">
+        </div>
+        <div class="cont-carta-titulo">
+            <h2 class="tit-carta">${event.name}</h2>
+            <h6>${event.description}</h6>
+        </div>
+        <div class="cont-carta-footer">
+            <h6 class="price"><b>Price:</b> ${event.price}</h6>
+            <a class="link-detail" href="./assets/details.html">Details</a>
+        </div> 
+        </div>`
+        }
+    }
+    if (divContenedor.innerHTML=== " ") {
+        divContenedor.innerHTML += `
+        <li> Result not found...</li>`
+    }
+    
+}
+
+boton.addEventListener("click", filtrar)
+formulario.addEventListener("keyup", filtrar)
+
+
+
+
+
+
+// filtrado de 7 categorias checks
 const contChecks = document.getElementById("cont-check")
 let categorias = check()
 
 for (let cate of categorias){
     let categoria = document.createElement("div")
     categoria.className="inputCheck"
-    categoria.innerHTML= `<input type="checkbox" id="input-check">
-    <label id="label">${cate}</label>`
+    categoria.innerHTML= `<input type="checkbox" value="${cate}" class="input-check">
+    <label class="label">${cate}</label>`
     contChecks.appendChild(categoria)
 }
 
@@ -46,77 +97,38 @@ function check(){
 return(array)
 }
 
-//filtrado de checks
-const checkbox=document.getElementById("input-check")
-const label=document.getElementById("label")
 
-const filtrarCheck = () => {
+
+
+
+
+
+
+//filtrado de checks  2 por categorias
+const contenedorChecks= document.getElementById("cont-check")
+
+function filtrarCheck(e) {
+   
+let aux = []
+
+for(let cont of contenedorChecks.children){
+    if (cont.firstChild.checked){
+    aux.push(cont.firstChild.value)
+    } 
+} 
     
-for (even of data.events){
-    if ((checkbox.checked) && (even.category === label.innerHTML)){
-        divContenedor.innerHTML = ` <div class="carta">
-        <div> <img class="cont-carta-img" src="${even.image}" alt="">
-    </div>
-    <div class="cont-carta-titulo">
-        <h2 class="tit-carta">${even.name}</h2>
-        <h6>${even.description}</h6>
-    </div>
-    <div class="cont-carta-footer">
-        <h6 class="price"><b>Price:</b> ${even.price}</h6>
-        <a class="link-detail" href="./assets/details.html">Details</a>
-    </div> 
-    </div>` 
-    divContenedor.appendChild(carta)
-    }
+    let eventosFiltrados = filtrarEventos(aux)
+    cartasHome(eventosFiltrados)
 }
-}
-checkbox.addEventListener("click", filtrarCheck)
+contenedorChecks.addEventListener("click", filtrarCheck)
 
 
-// filtrado por busqueda
-const formulario = document.getElementById("formulario")
-const boton = document.getElementById("boton")
-const cartas = data.events
-const divContenedor = document.getElementById("cont-cartas") 
+function filtrarEventos(categoria){
+    let aux = []
 
-const filtrar = () => {
-
-    
-    divContenedor.innerHTML= ""
-    const texto = formulario.value.toLowerCase()
-
-    for(let carta of cartas){
-        let name = carta.name.toLowerCase()
-        if(name.indexOf(texto) !== -1){
-            divContenedor.innerHTML = ` <div class="carta">
-            <div> <img class="cont-carta-img" src="${carta.image}" alt="">
-        </div>
-        <div class="cont-carta-titulo">
-            <h2 class="tit-carta">${carta.name}</h2>
-            <h6>${carta.description}</h6>
-        </div>
-        <div class="cont-carta-footer">
-            <h6 class="price"><b>Price:</b> ${carta.price}</h6>
-            <a class="link-detail" href="./assets/details.html">Details</a>
-        </div> 
-        </div>`
-        }
+    for (let event of data.events){
+        if(categoria.includes(event.category))
+        aux.push(event)
     }
-    if (divContenedor.innerHTML=== "") {
-        divContenedor.innerHTML += `
-        <li> Result not found...</li>`
-    }
-    
+    return aux
 }
-
-boton.addEventListener("click", filtrar)
-
-
-
-//alert boton submit- contact
-const btnsub = document.getElementById("submit")
-
-function enviarDatos() {
-    alert("Information received");
-  }
-btnsub.addEventListener("click", enviarDatos);
