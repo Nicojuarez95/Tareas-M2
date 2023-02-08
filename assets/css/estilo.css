@@ -253,11 +253,19 @@ footer {
 }
 
 .detail1 {
-    background-image: url(../images/Concierto\ de\ musica1.jpg);
-    background-size: cover;
+    height: 80%;
+    box-shadow: 0 0 25px;
+    border-radius: 15px;
 }
 
-.detail1, .detail2 {
+.detail1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+
+.detail2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -470,7 +478,7 @@ table tr {
 
     .cont-details {
         flex-direction: column;
-        height: 700px;
+        height: 650px;
     }
     .detail-titulo-carta {
         text-align: center;
@@ -479,7 +487,7 @@ table tr {
     }
     .detail1, .detail2 {
         width: 98%;
-        height: 45%;
+        height: 40%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -639,11 +647,7 @@ table tr {
         gap: 15px;
         padding-bottom: 20px;
     }
-    .details-img {
-        width: 100%;
-        height: 90%;
-        border-radius: 15px;
-    }
+    
     
     .detail-titulo-carta {
         text-align: center;
@@ -651,8 +655,8 @@ table tr {
         color: rgb(173, 5, 61);
     }
     .detail1, .detail2 {
-        width: 45%;
-        height: 90%;
+        width: 47%;
+        height: 60%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -694,11 +698,7 @@ table tr {
 }
 
 @media screen and (min-width:1025px) and (max-width:1454px) {
-    .details-img {
-        width: 100%;
-        height: 500px;
-        border-radius: 15px;
-    }
+    
     .p-detail {
         text-align: center;
         font-size: 1.8rem;
@@ -707,6 +707,10 @@ table tr {
         text-align: center;
         margin: 0;
         color: rgb(173, 5, 61);
+    }
+
+    .detail1 {
+        width: 50%;
     }
 
     .cont-input {

@@ -28,6 +28,10 @@ function rellenarCartas(carta,event,divContCartas){
 }
 
 
+
+
+
+
 //filtrar checks
 const contChecks = document.getElementById("cont-check")
 let categorias = check()
@@ -53,6 +57,10 @@ return(array)
 }
 
 
+
+
+
+
 // filtrado por busqueda
 const formulario = document.getElementById("formulario")
 const boton = document.getElementById("boton")
@@ -65,7 +73,7 @@ const filtrar = () => {
     for(let carta of data.events){
         let name = carta.name.toLowerCase()
         if(name.indexOf(texto) !== -1 && data.currentDate > carta.date){
-            divContenedor.innerHTML = ` <div class="carta">
+            divContenedor.innerHTML += ` <div class="carta">
             <div> <img class="cont-carta-img" src="${carta.image}" alt="">
         </div>
         <div class="cont-carta-titulo">
@@ -87,3 +95,8 @@ const filtrar = () => {
 }
 
 boton.addEventListener("click", filtrar)
+formulario.addEventListener("keyup", filtrar)
+
+
+
+

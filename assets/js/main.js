@@ -21,7 +21,7 @@ function rellenarCartas(cartaContenedor,event, divContenedor){
     </div>
     <div class="cont-carta-footer">
         <h6 class="price"><b>Price:</b> ${event.price}</h6>
-        <a class="link-detail" href="./assets/details.html">Details</a>
+        <a class="link-detail" href="./assets/details.html?name=${event.name}">Details</a>
     </div>`
     divContenedor.appendChild(cartaContenedor)
 }
@@ -34,18 +34,18 @@ function rellenarCartas(cartaContenedor,event, divContenedor){
 
 
 // filtrado por busqueda input text y submit
-function filtrar(){
-    const formulario = document.querySelector("#formulario")
-    const boton = document.getElementById("boton")
-    const divContenedor = document.querySelector("#cont-cartas") 
-    
-    divContenedor.innerHTML= " "
-    const texto = formulario.value.toLowerCase()
+const formulario = document.querySelector("#formulario")
+const boton = document.getElementById("boton")
+const divContenedor = document.querySelector("#cont-cartas") 
 
+function filtrar(){
+    
+    divContenedor.innerHTML= "";
+    let texto = formulario.value.toLowerCase();
     for(let event of data.events){
         let name = event.name.toLowerCase()
         if(name.indexOf(texto) !== -1){
-            divContenedor.innerHTML = ` <div class="carta">
+            divContenedor.innerHTML += ` <div class="carta">
             <div> <img class="cont-carta-img" src="${event.image}" alt="">
         </div>
         <div class="cont-carta-titulo">
@@ -59,7 +59,7 @@ function filtrar(){
         </div>`
         }
     }
-    if (divContenedor.innerHTML=== " ") {
+    if (divContenedor.innerHTML=== "") {
         divContenedor.innerHTML += `
         <li> Result not found...</li>`
     }
@@ -132,3 +132,7 @@ function filtrarEventos(categoria){
     }
     return aux
 }
+
+
+
+
