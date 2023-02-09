@@ -1,19 +1,35 @@
+const contenedorCartas = document.getElementById("cont-cartas")
+
+const formulario = document.querySelector("#formulario")
+const boton = document.getElementById("boton")
+const divContenedor = document.querySelector("#cont-cartas")
+
+const contChecks = document.getElementById("cont-check")
+
+const categoriasEventos= data.events.map( evento => evento.category)
+const catSinRepetir = [...new Set(categoriasEventos)]
+
+
+
+agregarCarta(data.events, contenedorCartas)
+agregarCategoria(catSinRepetir, contChecks)
+
+
+
+//funciones
+
 //filtrar 14 cartas
-function cartasHome(eventos){
-const divContenedor = document.getElementById("cont-cartas")
-divContenedor.innerHTML=""
-
-for (let event of eventos){
-    let cartaContenedor = document.createElement("div")
-    cartaContenedor.className = "carta"
-    rellenarCartas(cartaContenedor,event, divContenedor)
+function agregarCarta(lista, elemento){
+    elemento.innerHTML=""
+    let template=""
+    for(let event of lista){
+       template += rellenarCarta(event)
+    }
+    elemento.innerHTML += template
 }
-}
-cartasHome(data.events)
-
-function rellenarCartas(cartaContenedor,event, divContenedor){
-    cartaContenedor.innerHTML = `<div>
-        <img class="cont-carta-img" src="${event.image}" alt="">
+function rellenarCarta(event){
+    return `<div class="carta"> <div>
+    <img class="cont-carta-img" src="${event.image}" alt="">
     </div>
     <div class="cont-carta-titulo">
         <h2 class="tit-carta">${event.name}</h2>
@@ -22,24 +38,28 @@ function rellenarCartas(cartaContenedor,event, divContenedor){
     <div class="cont-carta-footer">
         <h6 class="price"><b>Price:</b> ${event.price}</h6>
         <a class="link-detail" href="./assets/details.html?name=${event.name}">Details</a>
-    </div>`
-    divContenedor.appendChild(cartaContenedor)
+    </div> </div>`
+}
+
+// filtrar 7 categorias
+function agregarCategoria(lista, elemento){
+    let fragment = document.createDocumentFragment()
+    lista.forEach(cate => fragment.appendChild(crearCategorias(cate) ) )
+    elemento.appendChild(fragment)
+    }
+function crearCategorias(cate){
+    let categoria = document.createElement(`div`)
+    categoria.value = cate
+    categoria.innerHTML = `<input value="${cate}" type="checkbox">
+    <label>${cate}</label>`
+
+    return categoria
 }
 
 
+// filtrado por busqueda
+function filtrarBusqueda(){
 
-
-
-
-
-
-// filtrado por busqueda input text y submit
-const formulario = document.querySelector("#formulario")
-const boton = document.getElementById("boton")
-const divContenedor = document.querySelector("#cont-cartas") 
-
-function filtrar(){
-    
     divContenedor.innerHTML= "";
     let texto = formulario.value.toLowerCase();
     for(let event of data.events){
@@ -54,8 +74,8 @@ function filtrar(){
         </div>
         <div class="cont-carta-footer">
             <h6 class="price"><b>Price:</b> ${event.price}</h6>
-            <a class="link-detail" href="./assets/details.html">Details</a>
-        </div> 
+            <a class="link-detail" href="./assets/details.html?name=${event.name}">Details</a>
+        </div>
         </div>`
         }
     }
@@ -63,43 +83,9 @@ function filtrar(){
         divContenedor.innerHTML += `
         <li> Result not found...</li>`
     }
-    
 }
-
-boton.addEventListener("click", filtrar)
-formulario.addEventListener("keyup", filtrar)
-
-
-
-
-
-
-// filtrado de 7 categorias checks
-const contChecks = document.getElementById("cont-check")
-let categorias = check()
-
-for (let cate of categorias){
-    let categoria = document.createElement("div")
-    categoria.className="inputCheck"
-    categoria.innerHTML= `<input type="checkbox" value="${cate}" class="input-check">
-    <label class="label">${cate}</label>`
-    contChecks.appendChild(categoria)
-}
-
-function check(){
- let array= []
-
-    for (let event of data.events){
-        if (array.indexOf(event.category) === -1)
-        array.push(event.category)
-    }
-
-return(array)
-}
-
-
-
-
+formulario.addEventListener("keyup", filtrarBusqueda)
+// boton.addEventListener("click", filtrar)
 
 
 
@@ -107,21 +93,26 @@ return(array)
 //filtrado de checks  2 por categorias
 const contenedorChecks= document.getElementById("cont-check")
 
+
 function filtrarCheck(e) {
-   
 let aux = []
 
 for(let cont of contenedorChecks.children){
     if (cont.firstChild.checked){
     aux.push(cont.firstChild.value)
-    } 
-} 
-    
+    }
+}
     let eventosFiltrados = filtrarEventos(aux)
-    cartasHome(eventosFiltrados)
+    agregarCarta(eventosFiltrados, contenedorCartas)
+
+let aux2 = Boolean(...aux)
+console.log(aux2)
+    if (!aux2){
+        agregarCarta(data.events, contenedorCartas)
+    }
+
 }
 contenedorChecks.addEventListener("click", filtrarCheck)
-
 
 function filtrarEventos(categoria){
     let aux = []
@@ -132,6 +123,7 @@ function filtrarEventos(categoria){
     }
     return aux
 }
+
 
 
 

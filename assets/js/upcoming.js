@@ -1,65 +1,64 @@
-//filtrar cartas
-function crearCartasUpComing(){
-    const divContCartas = document.getElementById("cont-cartas")
+const contenedorCartas = document.getElementById("cont-cartas")
 
-    for(let event of data.events){
-        if (data.currentDate < event.date) {
-            let carta = document.createElement("div")
-            carta.className= "carta"
-            rellenarCartas(carta,event,divContCartas)
-            }
-        }
-    }
-crearCartasUpComing()
-
-function rellenarCartas(carta,event,divContCartas){
-    carta.innerHTML = `<div>
-            <img class="cont-carta-img" src="${event.image}" alt="">
-            </div>
-            <div class="cont-carta-titulo">
-                <h2 class="tit-carta">${event.name}</h2>
-                <h6>${event.description}</h6>
-            </div>
-            <div class="cont-carta-footer">
-                <h6 class="price"><b>Price:</b> ${event.price}</h6>
-                <a class="link-detail" href="./details.html">Details</a>
-            </div>`
-            divContCartas.appendChild(carta)
-}
-
-
-
-// filtrar checks
-const contChecks = document.getElementById("cont-check")
-let categorias = check()
-
-
-for (let cate of categorias){
-    let categoria = document.createElement("div")
-    categoria.innerHTML= `<input type="checkbox">
-    <label>${cate}</label>`
-    contChecks.appendChild(categoria)
-}
-
-
-function check(){
- let array= []
-
-    for (let event of data.events){
-        if (array.indexOf(event.category) === -1)
-        array.push(event.category)
-    }
-
-return(array)
-}
-
-
-// filtrado por busqueda
 const formulario = document.getElementById("formulario")
 const boton = document.getElementById("boton")
 const divContenedor = document.getElementById("cont-cartas") 
 
-const filtrar = () => {
+const contChecks = document.getElementById("cont-check")
+
+const categoriasEventos= data.events.map( evento => evento.category)
+const catSinRepetir = [...new Set(categoriasEventos)]
+
+
+
+agregarCarta(data.events, contenedorCartas)
+agregarCategoria(catSinRepetir, contChecks)
+
+
+
+//funciones
+
+//filtrar 14 cartas
+function agregarCarta(lista, elemento){
+    elemento.innerHTML=""
+    let template = ""              //reflow
+    for(let event of lista){
+        if (data.currentDate < event.date)
+        template += rellenarCarta(event)
+    }
+    elemento.innerHTML += template //reflow
+}
+function rellenarCarta(event){
+    return `<div class="carta"> <div>
+    <img class="cont-carta-img" src="${event.image}" alt="">
+    </div>
+    <div class="cont-carta-titulo">
+        <h2 class="tit-carta">${event.name}</h2>
+        <h6>${event.description}</h6>
+    </div>
+    <div class="cont-carta-footer">
+        <h6 class="price"><b>Price:</b> ${event.price}</h6>
+        <a class="link-detail" href="./details.html?name=${event.name}">Details</a>
+    </div> </div>`
+}
+
+// filtrar 7 categorias
+function agregarCategoria(lista, elemento){
+    let fragment = document.createDocumentFragment()
+    lista.forEach(cate => fragment.appendChild(crearCategorias(cate) ) )
+    elemento.appendChild(fragment)     
+    }
+function crearCategorias(cate){
+    let categoria = document.createElement(`div`)
+    categoria.innerHTML = `<input type="checkbox">
+    <label>${cate}</label>`
+    
+    return categoria
+}
+
+
+// filtrado por busqueda
+function filtrarBusqueda(){
     divContenedor.innerHTML= ""
     const texto = formulario.value.toLowerCase()
 
@@ -75,7 +74,7 @@ const filtrar = () => {
         </div>
         <div class="cont-carta-footer">
             <h6 class="price"><b>Price:</b> ${carta.price}</h6>
-            <a class="link-detail" href="./assets/details.html">Details</a>
+            <a class="link-detail" href="./details.html?name=${carta.name}">Details</a>
         </div> 
         </div>`
         }
@@ -86,6 +85,45 @@ const filtrar = () => {
     }
     
 }
+boton.addEventListener("click", filtrarBusqueda)
+formulario.addEventListener("keyup", filtrarBusqueda)
 
-boton.addEventListener("click", filtrar)
-formulario.addEventListener("keyup", filtrar)
+
+
+
+//filtrado de checks  2 por categorias
+const contenedorChecks= document.getElementById("cont-check")
+const filtrarEventosUpComing = data.events.filter(event => event.date > data.currentDate)
+
+function filtrarCheck(e) {
+let aux = []
+
+for(let cont of contenedorChecks.children){
+    if (cont.firstChild.checked){
+    aux.push(cont.firstChild.value)
+    }
+}
+    let eventosFiltrados = filtrarEventos(aux)
+    agregarCarta(eventosFiltrados, contenedorCartas)
+
+let aux2 = Boolean(...aux)
+console.log(aux2)
+    if (!aux2){
+        agregarCarta(data.events, contenedorCartas)
+    }
+
+}
+contenedorChecks.addEventListener("click", filtrarCheck)
+
+function filtrarEventos(categoria){
+    let aux = []
+
+    for (let event of filtrarEventosUpComing){
+        if(categoria.includes(event.category))
+        aux.push(event)
+    }
+    return aux
+}
+
+
+

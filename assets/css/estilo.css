@@ -276,6 +276,7 @@ footer {
     box-shadow: 0 0 25px;
     background-color: rgba(240, 199, 213, 0.658);
     text-align: center;
+    padding: 20px;
 }
 
 .detail-titulo-carta {
@@ -718,7 +719,7 @@ table tr {
     }
 
     h5 {
-        font-size: 1rem;
+        font-size: 1.4rem;
         margin: 0;
     }
 
