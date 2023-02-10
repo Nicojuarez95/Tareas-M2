@@ -31,9 +31,7 @@ const categoriasEventos= data.events.map( evento => evento.category)
 const catSinRepetir = [...new Set(categoriasEventos)]
 
 function agregarCategoria(lista, elemento){
-    let fragment = document.createDocumentFragment()
-    lista.forEach(cate => fragment.appendChild(crearCategorias(cate) ) )
-    elemento.appendChild(fragment)
+    lista.forEach(cate => elemento.appendChild(crearCategorias(cate) ) )
     }
 function crearCategorias(cate){
     let categoria = document.createElement(`div`)
@@ -48,7 +46,6 @@ agregarCategoria(catSinRepetir, contChecks)
 
 // filtrado por busqueda
 const formulario = document.querySelector("#formulario")
-const boton = document.getElementById("boton")
 const divContenedor = document.querySelector("#cont-cartas")
 const lista = data.events
 
@@ -85,9 +82,9 @@ const checks= document.getElementById("cont-check")
 
 
 function filtrarChecks(lista){
-const checkbox= document.querySelectorAll("input[type=checkbox]:checked")//recuperar todos los checkbox checked
-const arrayCheckbox = [...checkbox]//fijarme cual esta checked y meterlo en un array
-constValueChecks= arrayCheckbox.map(e => e.value)//quedarme con el value de los que estan checked
+const checkbox= document.querySelectorAll("input[type=checkbox]:checked")
+const arrayCheckbox = [...checkbox]
+constValueChecks= arrayCheckbox.map(e => e.value)
 if(constValueChecks.length == 0){
     return lista
 } else {

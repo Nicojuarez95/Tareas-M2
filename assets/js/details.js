@@ -1,9 +1,9 @@
 //details
 const contDetalles=document.getElementById("cont-det")
 
-const detalles = location.search
-const parametro = new URLSearchParams(detalles)
-const nombre = parametro.get("name")
+const detalles = location.search //url del navegador
+const parametro = new URLSearchParams(detalles) //parametro url del navegador
+const nombre = parametro.get("name")//metodos disponibles por el URLSearch (get)
 
 
 const evento = data.events.find(evento => evento.name == nombre)
