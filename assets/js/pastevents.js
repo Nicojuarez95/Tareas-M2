@@ -22,9 +22,9 @@ const divContenedor = document.querySelector("#cont-cartas")
 const lista = data.events.filter(event => event.date < data.currentDate)
 
 formulario.addEventListener("keyup", function(){
-    const filtradosPorCheck = filtrarChecks(lista)
-    const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
-    agregarBusquedaPast(filtradoPorBusqueda,divContenedor) 
+const filtradosPorCheck = filtrarChecks(lista)
+const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
+agregarBusquedaPast(filtradoPorBusqueda,divContenedor) 
 })
 
 
@@ -33,8 +33,8 @@ formulario.addEventListener("keyup", function(){
 const checks= document.getElementById("cont-check")
 const filtrarEventosPast = data.events.filter(event => event.date < data.currentDate)
     
-    checks.addEventListener("change", (e) => {
-       const filtradosPorCheck = filtrarChecks(filtrarEventosPast)
-       const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
-       agregarBusquedaPast(filtradoPorBusqueda,divContenedor)
-    })
+checks.addEventListener("change", (e) => {
+const filtradosPorCheck = filtrarChecks(filtrarEventosPast)
+const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
+agregarBusquedaPast(filtradoPorBusqueda,divContenedor)
+})

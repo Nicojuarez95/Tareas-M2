@@ -33,9 +33,9 @@ agregarBusqueda(filtradoPorBusqueda, divContenedor)
 const checks= document.getElementById("cont-check")
 
 checks.addEventListener("change", (e) => {
-   const filtradosPorCheck = filtrarChecks(data.events)
-   const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
-   agregarBusqueda(filtradoPorBusqueda, divContenedor)
+const filtradosPorCheck = filtrarChecks(data.events)
+const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
+agregarBusqueda(filtradoPorBusqueda, divContenedor)
 })
 
 
