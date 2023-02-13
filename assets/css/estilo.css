@@ -314,6 +314,10 @@ footer {
     width: 100%;
 }
 
+.form-control{
+    resize: none;
+}
+
 .btn {
     width: 100px;
     border: none;
@@ -346,7 +350,7 @@ footer {
 }
 
 table {
-    box-shadow: 0 0 25px;
+    box-shadow: 0 0 15px;
     text-align: center;
 }
 
@@ -401,7 +405,15 @@ table tr {
 
     .carta {
         width: 300px;
-        height: 520px;
+        height: 450px;
+    }
+
+    .tit-carta {
+        font-size: 1.7rem;
+    }
+
+    h6{
+        font-size: 1rem;
     }
 
     .cont-carta-img {
@@ -757,10 +769,6 @@ table tr {
     .tabla {
         padding-top: 30px;
         width: 60vw;
-    }
-
-    table {
-        height: 600px;
     }
 
     .detail1, .detail2 {

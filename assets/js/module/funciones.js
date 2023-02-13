@@ -75,14 +75,14 @@ export function filtrarChecks(lista){
     } else {
         return lista.filter((event) => {
             return valueChecks.includes(event.category)
-        })//filtrar lista y devolverla
+        })
     }
 }
 export function agregarCartaUp(lista, elemento){
     elemento.innerHTML=""
     let template = ""              //reflow
     for(let event of lista){
-        if (data.currentDate < event.date)
+        if (datos.currentDate < event.date)
         template += rellenarCartaUp(event)
     }
     elemento.innerHTML += template //reflow
@@ -91,7 +91,7 @@ export function agregarCartaPast(lista, elemento){
     elemento.innerHTML=""
     let template = ""              //reflow
     for(let event of lista){
-        if (data.currentDate > event.date)
+        if (datos.currentDate > event.date)
         template += rellenarCartaPast(event)
     }
     elemento.innerHTML += template //reflow
