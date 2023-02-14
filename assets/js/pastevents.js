@@ -1,40 +1,38 @@
 import {agregarCartaPast, agregarCategoria, filtrarChecks, filtrarBusqueda, agregarBusquedaPast} from "./module/funciones.js" 
+let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
 
-//filtrar 7 cartas
-const contenedorCartas = document.getElementById("cont-cartas")
-
-agregarCartaPast(data.events, contenedorCartas)
-
-
-// filtrar 7 categorias
 const contChecks = document.getElementById("cont-check")
-const categoriasEventos= data.events.map( evento => evento.category)
-const catSinRepetir = [...new Set(categoriasEventos)]
-
-agregarCategoria(catSinRepetir, contChecks)
-
-
-
-// filtrado por busqueda
-const formulario = document.querySelector("#formulario")
-const boton = document.getElementById("boton")
-const divContenedor = document.querySelector("#cont-cartas")
-const lista = data.events.filter(event => event.date < data.currentDate)
-
-formulario.addEventListener("keyup", function(){
-const filtradosPorCheck = filtrarChecks(lista)
-const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
-agregarBusquedaPast(filtradoPorBusqueda,divContenedor) 
-})
-
-
-
-//filtrado de checks  2 por categorias
 const checks= document.getElementById("cont-check")
-const filtrarEventosPast = data.events.filter(event => event.date < data.currentDate)
-    
-checks.addEventListener("change", (e) => {
-const filtradosPorCheck = filtrarChecks(filtrarEventosPast)
-const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
-agregarBusquedaPast(filtradoPorBusqueda,divContenedor)
-})
+const formulario = document.querySelector("#formulario")
+const divContenedor = document.querySelector("#cont-cartas")
+          
+
+async function traerDatos(){
+    try{
+    const response = await fetch(urlApi)
+    const datos = await response.json()
+
+        const filtrarEventosPast = datos.events.filter(event => event.date < datos.currentDate)
+        const categoriasEventos= datos.events.map( evento => evento.category)
+        const catSinRepetir=[...new Set(categoriasEventos)]  
+
+        agregarCartaPast(filtrarEventosPast,divContenedor)
+        agregarCategoria(catSinRepetir, contChecks)
+        filtrarBusqueda(filtrarEventosPast, divContenedor)
+        agregarBusquedaPast(filtrarEventosPast, divContenedor)
+        formulario.addEventListener("keyup", function(){
+            const filtradosPorCheck = filtrarChecks(filtrarEventosPast)
+            const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
+            agregarBusquedaPast(filtradoPorBusqueda, divContenedor)
+            })
+        checks.addEventListener("change", (e) => {
+            const filtradosPorCheck = filtrarChecks(filtrarEventosPast)
+            const filtradoPorBusqueda = filtrarBusqueda(filtradosPorCheck, divContenedor)
+            agregarBusquedaPast(filtradoPorBusqueda, divContenedor)
+            })
+    } 
+    catch(error){
+        console.log(`El error es`, error)
+    }
+}
+traerDatos()

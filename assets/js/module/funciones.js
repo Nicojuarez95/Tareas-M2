@@ -25,7 +25,7 @@ export function agregarCategoria(lista, elemento){
 export function crearCategorias(cate){
     let categoria = document.createElement(`div`)
     categoria.className="contenedor-checkbox"
-    categoria.innerHTML = `<input value="${cate}" type="checkbox">
+    categoria.innerHTML = `<input value="${cate}" id="checkbox" type="checkbox">
     <label>${cate}</label>`
 
     return categoria
@@ -82,7 +82,6 @@ export function agregarCartaUp(lista, elemento){
     elemento.innerHTML=""
     let template = ""              //reflow
     for(let event of lista){
-        if (datos.currentDate < event.date)
         template += rellenarCartaUp(event)
     }
     elemento.innerHTML += template //reflow
@@ -91,7 +90,6 @@ export function agregarCartaPast(lista, elemento){
     elemento.innerHTML=""
     let template = ""              //reflow
     for(let event of lista){
-        if (datos.currentDate > event.date)
         template += rellenarCartaPast(event)
     }
     elemento.innerHTML += template //reflow
@@ -122,3 +120,20 @@ export function rellenarCartaPast(event){
         <a class="link-detail" href="./details.html?name=${event.name}">Details</a>
     </div> </div>`
 }
+export function crearDetail(event, contenedor){
+    contenedor.innerHTML = `<div class="detail1">
+    <img src="${event.image}">                
+    </div>
+    <div class="detail2">
+        <h2 class="detail-titulo-carta" >${event.name}</h2>
+        <h5><b>Date:</b> ${event.date}</h5>
+        <h5><b>Description:</b> ${event.description}</h5>
+        <h5><b>Category:</b> ${event.category}</h5>
+        <h5><b>Place:</b> ${event.place}</h5>
+        <h5><b>Capacity:</b> ${event.capacity}</h5>
+        <h5><b>${event.assistance !== undefined ? "Assistance: " : "Estimate: "}</b>${event.assistance !== undefined ? event.assistance : event.estimate}</h5>
+        <h5><b>Price:</b> ${event.price}</h5>
+    </div>`
+}
+
+

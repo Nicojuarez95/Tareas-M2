@@ -1,24 +1,27 @@
-//details
-const contDetalles=document.getElementById("cont-det")
-
-const detalles = location.search //url del navegador
-const parametro = new URLSearchParams(detalles) //parametro url del navegador
-const nombre = parametro.get("name")//metodos disponibles por el URLSearch (get)
+import {crearDetail} from "./module/funciones.js"
+let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
 
 
-const evento = datos.events.find(evento => evento.name == nombre)
+const detalles = location.search 
+const parametro = new URLSearchParams(detalles) 
+const nombre = parametro.get("name")
 
 
-contDetalles.innerHTML = `<div class="detail1">
-<img src="${evento.image}">                
-</div>
-<div class="detail2">
-    <h2 class="detail-titulo-carta" >${evento.name}</h2>
-    <h5><b>Date:</b> ${evento.date}</h5>
-    <h5><b>Description:</b> ${evento.description}</h5>
-    <h5><b>Category:</b> ${evento.category}</h5>
-    <h5><b>Place:</b> ${evento.place}</h5>
-    <h5><b>Capacity:</b> ${evento.capacity}</h5>
-    <h5><b>${evento.assistance !== undefined ? "Assistance: " : "Estimate: "}</b>${evento.assistance !== undefined ? evento.assistance : evento.estimate}</h5>
-    <h5><b>Price:</b> ${evento.price}</h5>
-</div>`
+async function traerDatos(){
+    try{
+    const response = await fetch(urlApi)
+    const datos = await response.json()
+    
+    const contDetalles=document.getElementById("cont-det")
+    const evento = datos.events.find(evento => evento.name == nombre)
+    crearDetail(evento,contDetalles)
+
+    }
+    catch(error){
+        console.log(`El error es`, error)
+    }
+}
+traerDatos()
+
+
+
