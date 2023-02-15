@@ -136,4 +136,115 @@ export function crearDetail(event, contenedor){
     </div>`
 }
 
+//tabla
+export function crearTabla1(mayorPorcentajeDeAsistencia,menosPorcentajeDeAsistencia,masCapacidad){
+    return `<table>
+    <thead>
+    <tr>
+    <th scope="col" colspan="3" class="title-table1">Event statistics</th>
+    </tr>
+    <tr>
+    <th>Event with the highest persentage of attendance</th>
+    <th>Event with the lowest percentage of attendance</th>
+    <th>Event with larger capacity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <th>${mayorPorcentajeDeAsistencia.name} ${(mayorPorcentajeDeAsistencia.assistance / mayorPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
+    <th>${menosPorcentajeDeAsistencia.name} ${(menosPorcentajeDeAsistencia.assistance / menosPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
+    <th>${masCapacidad.name} ${masCapacidad.capacity}</th>
+    </tr>
+    </tbody>
+    </table>
+    `
+}
+export function ingresos(lista, listaSinRepetir){
+    let ingresos=[]
+    for(let i = 0; i < listaSinRepetir.length; i++){
+        let ganancia = 0
+        for(let list of lista){
+            if (list.category === listaSinRepetir[i]){
+                if (list.estimate !== undefined){
+                    ganancia += list.price * list.estimate
+                }else{
+                    ganancia += list.price * list.assistance
+                }
+            }
+        }
+        ingresos.push(ganancia)
+    }
+    return ingresos
+}
+export function porcentajeDeAsist(lista, listaSinRepetir){
+    let arrayPorcentaje=[]
+    for(let i = 0; i < listaSinRepetir.length; i++){
+        let porcentaje = 0
+        for(let list of lista){
+            if (list.category === listaSinRepetir[i]){
+                if (list.estimate !== undefined){
+                    porcentaje += (list.estimate / list.capacity * 100)
+                }else{
+                    porcentaje += (list.assistance / list.capacity * 100)
+                }
+            }
+        }
+        arrayPorcentaje.push(porcentaje)
+    }
+    return arrayPorcentaje 
+}
+export function crearTablaEstadisticaUp(listaSinRepetir, ingresos, porcentajeDeAsistencia){
+    let estadistica = estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia)
+    
+    return `
+    <table>
+    <thead>
+    <tr>
+    <th scope="col" colspan="3" class="title-table1">Upcoming events statistics by category</th>
+    </tr>
+    <tr>
+    <th>Categories</th>
+    <th>Revenues</th>
+    <th>Persentage of attendance</th>
+    </tr>
+    </thead>
+    <tbody>
+    ${estadistica}
+    </tbody
+    </table>
+    `
+}
+export function crearTablaEstadisticaPast(listaSinRepetir, ingresos, porcentajeDeAsistencia){
+    let estadistica = estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia)
 
+    return `
+    <table>
+    <thead>
+    <tr>
+    <th scope="col" colspan="3" class="title-table1">Past events statistics by category</th>
+    </tr>
+    <tr>
+    <th>Categories</th>
+    <th>Revenues</th>
+    <th>Persentage of attendance</th>
+    </tr>
+    </thead>
+    <tbody>
+    ${estadistica}
+    </tbody
+    </table>
+    `
+}
+export function estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia){
+    let estadisticas = ""
+    for(let i = 0; i<listaSinRepetir.length; i++){
+        estadisticas += `
+        <tr>
+        <td>${listaSinRepetir}</td>
+        <td>$${ingresos[i]}</td>
+        <td>${porcentajeDeAsistencia[i].toFixed(2)}%</td>
+        </tr>
+        `
+    }
+    return estadisticas
+}

@@ -282,6 +282,7 @@ h5 {
     letter-spacing: 1px;
     box-shadow: #8f0417 0px 7px 2px, #000 0px 8px 5px;
     margin-left: 15px;
+    height: 38px;
 }
 
 .link-detail:hover {
@@ -431,12 +432,14 @@ footer {
     gap: 35px;
     margin-top: 30px;
     margin-bottom: 30px;
-    min-width: 900px;
+    min-width: 300px;
+    border-radius: 15px;
 }
 
 table {
     box-shadow: 0 0 15px;
     text-align: center;
+    border-radius: 15px;
 }
 
 table,
@@ -454,28 +457,21 @@ td {
 th {
     height: 1.7rem;
 }
-.table {
-    width: 100%;
-    margin: 5% 0;
-}
 
 .tabla table{
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
 }
 
 table tr {
-    background-color: #e0dfde;
+    background-color: #e0dfdea1;
 }
 
-.title {
-    background-color: #9b9798;
-}
-
-.title th {
+.title-table1 {
     padding: .6rem;
-    color: #c73f61;
-    font-size: .9rem;
+    color: #da1647;
+    font-size: 1rem;
+    background-color: #9b97988f;
 }
 
 
