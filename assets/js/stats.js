@@ -14,13 +14,14 @@ async function traerDatos(){
     const masCapacidad = eventosPasados.reduce((a,b)=> a.capacity > b.capacity ? a : b)
     const menosPorcentajeDeAsistencia = eventosPasados.reduce((a,b) => (a.assistance / a.capacity * 100) < (b.assistance / b.capacity * 100) ? a : b)
     const mayorPorcentajeDeAsistencia = eventosPasados.reduce((a,b) => (a.assistance / a.capacity * 100) > (b.assistance / b.capacity * 100) ? a : b)
-    console.log(datos)
+    
 
     //upcoming
     const categoriasUp = eventosAvenir.map(event => event.category)
     const categoriaUnicaUp = [...new Set(categoriasUp)]
     const ingresosUp = ingresos(eventosAvenir, categoriaUnicaUp)
     const porcentajeDeAsistenciaUp = porcentajeDeAsistUp(eventosAvenir, categoriaUnicaUp)
+    console.log(porcentajeDeAsistenciaUp)
     
     //past
     const categoriasPast = eventosPasados.map(event => event.category)
