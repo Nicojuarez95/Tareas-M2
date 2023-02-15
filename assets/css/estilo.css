@@ -658,6 +658,10 @@ table tr {
     .tabla {
         width: 320px;
     }
+    .link-detail{
+        padding: 3px;
+        font-size: 1.4rem;
+    }
 }
 
 @media screen and (min-width:375px) and (max-width:767px) {
