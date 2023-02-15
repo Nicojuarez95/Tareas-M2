@@ -1,4 +1,4 @@
-import {crearTabla1, ingresos, porcentajeDeAsist, crearTablaEstadisticaUp, crearTablaEstadisticaPast} from "./module/funciones.js"
+import {crearTabla1, ingresos, porcentajeDeAsistUp, porcentajeDeAsistPasado, crearTablaEstadisticaUp, crearTablaEstadisticaPast} from "./module/funciones.js"
 let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
 
 const contTabla= document.querySelector(".tabla")
@@ -14,17 +14,19 @@ async function traerDatos(){
     const masCapacidad = eventosPasados.reduce((a,b)=> a.capacity > b.capacity ? a : b)
     const menosPorcentajeDeAsistencia = eventosPasados.reduce((a,b) => (a.assistance / a.capacity * 100) < (b.assistance / b.capacity * 100) ? a : b)
     const mayorPorcentajeDeAsistencia = eventosPasados.reduce((a,b) => (a.assistance / a.capacity * 100) > (b.assistance / b.capacity * 100) ? a : b)
-    
+    console.log(datos)
+
+    //upcoming
     const categoriasUp = eventosAvenir.map(event => event.category)
     const categoriaUnicaUp = [...new Set(categoriasUp)]
-    console.log(categoriaUnicaUp)
     const ingresosUp = ingresos(eventosAvenir, categoriaUnicaUp)
-    const porcentajeDeAsistenciaUp = porcentajeDeAsist(eventosAvenir, categoriaUnicaUp)
-        
+    const porcentajeDeAsistenciaUp = porcentajeDeAsistUp(eventosAvenir, categoriaUnicaUp)
+    
+    //past
     const categoriasPast = eventosPasados.map(event => event.category)
     const categoriaUnicaPast = [...new Set(categoriasPast)]
     const ingresosPast = ingresos(eventosPasados, categoriaUnicaPast)
-    const porcentajeDeAsistenciaPast = porcentajeDeAsist(eventosPasados, categoriaUnicaPast)
+    const porcentajeDeAsistenciaPast = porcentajeDeAsistPasado(eventosPasados, categoriaUnicaPast)
     
     let tabla1 = crearTabla1(mayorPorcentajeDeAsistencia,menosPorcentajeDeAsistencia,masCapacidad)
     let tabla2 = crearTablaEstadisticaUp(categoriaUnicaUp, ingresosUp, porcentajeDeAsistenciaUp)

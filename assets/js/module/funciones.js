@@ -176,23 +176,37 @@ export function ingresos(lista, listaSinRepetir){
     }
     return ingresos
 }
-export function porcentajeDeAsist(lista, listaSinRepetir){
+export function porcentajeDeAsistUp(lista, listaSinRepetir){
     let arrayPorcentaje=[]
     for(let i = 0; i < listaSinRepetir.length; i++){
-        let porcentaje = 0
+        let estimado = 0
+        let capacidad = 0
         for(let list of lista){
             if (list.category === listaSinRepetir[i]){
-                if (list.estimate !== undefined){
-                    porcentaje += (list.estimate / list.capacity * 100)
-                }else{
-                    porcentaje += (list.assistance / list.capacity * 100)
-                }
+               estimado += list.estimate
+               capacidad += list.capacity
             }
         }
-        arrayPorcentaje.push(porcentaje)
+        arrayPorcentaje.push(estimado / capacidad * 100 )
     }
     return arrayPorcentaje 
 }
+export function porcentajeDeAsistPasado(lista, listaSinRepetir){
+    let arrayPorcentaje=[]
+    for(let i = 0; i < listaSinRepetir.length; i++){
+        let asistencia = 0
+        let capacidad = 0
+        for(let list of lista){
+            if (list.category === listaSinRepetir[i]){
+                capacidad += (list.capacity)
+                asistencia += (list.assistance)
+            }
+        }
+        arrayPorcentaje.push(asistencia / capacidad * 100)
+    }
+    return arrayPorcentaje 
+}
+
 export function crearTablaEstadisticaUp(listaSinRepetir, ingresos, porcentajeDeAsistencia){
     let estadistica = estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia)
     
@@ -240,7 +254,7 @@ export function estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia){
     for(let i = 0; i<listaSinRepetir.length; i++){
         estadisticas += `
         <tr>
-        <td>${listaSinRepetir}</td>
+        <td>${listaSinRepetir[i]}</td>
         <td>$${ingresos[i]}</td>
         <td>${porcentajeDeAsistencia[i].toFixed(2)}%</td>
         </tr>
@@ -248,3 +262,10 @@ export function estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia){
     }
     return estadisticas
 }
+// export function imprimirCategorias(array){
+//     let aux = []
+//     for (let i = 0; i < array.length; i++) {
+//         aux.push(array[i]);
+//     }
+//     return aux
+// }
