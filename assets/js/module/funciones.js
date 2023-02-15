@@ -8,7 +8,7 @@ export function agregarCarta(lista, elemento){
 }
 export function rellenarCarta(event){
     return `<div class="carta"> <div>
-    <img class="cont-carta-img" src="${event.image}" alt="">
+    <img class="cont-carta-img" src="${event.image}" alt="Metalica in concert">
     </div>
     <div class="cont-carta-titulo">
         <h2 class="tit-carta">${event.name}</h2>
