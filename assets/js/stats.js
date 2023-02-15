@@ -1,4 +1,4 @@
-import {crearTabla1, ingresos, porcentajeDeAsistUp, porcentajeDeAsistPasado, crearTablaEstadisticaUp, crearTablaEstadisticaPast} from "./module/funciones.js"
+import {crearTabla1, ingresos, porcentajeDeAsistUp, porcentajeDeAsistPasado, crearTablaEstadistica} from "./module/funciones.js"
 let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
 
 const contTabla= document.querySelector(".tabla")
@@ -29,8 +29,8 @@ async function traerDatos(){
     const porcentajeDeAsistenciaPast = porcentajeDeAsistPasado(eventosPasados, categoriaUnicaPast)
     
     let tabla1 = crearTabla1(mayorPorcentajeDeAsistencia,menosPorcentajeDeAsistencia,masCapacidad)
-    let tabla2 = crearTablaEstadisticaUp(categoriaUnicaUp, ingresosUp, porcentajeDeAsistenciaUp)
-    let tabla3 = crearTablaEstadisticaPast(categoriaUnicaPast, ingresosPast, porcentajeDeAsistenciaPast)   
+    let tabla2 = crearTablaEstadistica(categoriaUnicaUp, ingresosUp, porcentajeDeAsistenciaUp)
+    let tabla3 = crearTablaEstadistica(categoriaUnicaPast, ingresosPast, porcentajeDeAsistenciaPast)   
 
     let tabla= tabla1 + tabla2 + tabla3
     contTabla.innerHTML=tabla

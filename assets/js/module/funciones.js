@@ -151,9 +151,9 @@ export function crearTabla1(mayorPorcentajeDeAsistencia,menosPorcentajeDeAsisten
     </thead>
     <tbody>
     <tr>
-    <th>${mayorPorcentajeDeAsistencia.name} ${(mayorPorcentajeDeAsistencia.assistance / mayorPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
-    <th>${menosPorcentajeDeAsistencia.name} ${(menosPorcentajeDeAsistencia.assistance / menosPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
-    <th>${masCapacidad.name} ${masCapacidad.capacity}</th>
+    <th>${mayorPorcentajeDeAsistencia.name} - ${(mayorPorcentajeDeAsistencia.assistance / mayorPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
+    <th>${menosPorcentajeDeAsistencia.name} - ${(menosPorcentajeDeAsistencia.assistance / menosPorcentajeDeAsistencia.capacity * 100).toFixed(2)}%</th>
+    <th>${masCapacidad.name} - ${masCapacidad.capacity}</th>
     </tr>
     </tbody>
     </table>
@@ -206,8 +206,7 @@ export function porcentajeDeAsistPasado(lista, listaSinRepetir){
     }
     return arrayPorcentaje 
 }
-
-export function crearTablaEstadisticaUp(listaSinRepetir, ingresos, porcentajeDeAsistencia){
+export function crearTablaEstadistica(listaSinRepetir, ingresos, porcentajeDeAsistencia){
     let estadistica = estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia)
     
     return `
@@ -215,27 +214,6 @@ export function crearTablaEstadisticaUp(listaSinRepetir, ingresos, porcentajeDeA
     <thead>
     <tr>
     <th scope="col" colspan="3" class="title-table1">Upcoming events statistics by category</th>
-    </tr>
-    <tr>
-    <th>Categories</th>
-    <th>Revenues</th>
-    <th>Persentage of attendance</th>
-    </tr>
-    </thead>
-    <tbody>
-    ${estadistica}
-    </tbody
-    </table>
-    `
-}
-export function crearTablaEstadisticaPast(listaSinRepetir, ingresos, porcentajeDeAsistencia){
-    let estadistica = estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia)
-
-    return `
-    <table>
-    <thead>
-    <tr>
-    <th scope="col" colspan="3" class="title-table1">Past events statistics by category</th>
     </tr>
     <tr>
     <th>Categories</th>
@@ -262,10 +240,3 @@ export function estadisticas(listaSinRepetir, ingresos, porcentajeDeAsistencia){
     }
     return estadisticas
 }
-// export function imprimirCategorias(array){
-//     let aux = []
-//     for (let i = 0; i < array.length; i++) {
-//         aux.push(array[i]);
-//     }
-//     return aux
-// }
