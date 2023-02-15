@@ -9,6 +9,20 @@ body {
     overflow-x: hidden;
     background-image: linear-gradient(to left top, #d8268b, #cc4cac, #ba68c6, #a77fd8, #9492e3, #82a2ee, #73b1f5, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
+body::-webkit-scrollbar {
+    width: 15px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.692);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(92, 203, 236);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(211, 14, 73);  /* creates padding around scroll thumb */
+  }
+
 
 header {
     height: 10vh;
@@ -57,6 +71,9 @@ main {
 
 h1 {
     font-size: 5rem;
+    font-family: fantasy;
+    font-weight: 0;
+    letter-spacing: 4px;
 }
 
 .cont-input {
@@ -400,19 +417,32 @@ footer {
 }
 
 .btn {
-    width: 100px;
+    --bg: #db215f;
+    --text-color: #fff;
+    position: relative;
+    width: 130px;
     border: none;
-    border-radius: 10px;
-    background-color: #c73f61;
-    color: white;
-    font-size: 1.5rem;
-    border: 1px solid black;
+    background: var(--bg);
+    color: var(--text-color);
+    text-decoration: none;
+    padding-left: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #8f0417 0px 7px 2px, #000 0px 8px 5px;
+    margin-left: 15px;
+    height: 38px;
 }
 
 .btn:hover {
-    background-color: #a00a2f;
-    box-shadow: 0 0 15px #d40e40;
-    border: 1px solid rgb(0, 0, 0);
+    opacity: 1;
+}
+.btn:active {
+    top: 4px;
+    box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
 }
 
 #label-cont {
